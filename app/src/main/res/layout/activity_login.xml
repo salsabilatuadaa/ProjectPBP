@@ -33,7 +33,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="Username"
+            android:inputType="text"
             android:minHeight="48dp"
+            android:drawableStart="@drawable/baseline_person_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
@@ -46,6 +48,7 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:minHeight="48dp"
+            android:drawableStart="@drawable/baseline_lock_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
