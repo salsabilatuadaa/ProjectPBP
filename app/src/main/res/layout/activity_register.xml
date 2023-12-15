@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
 
 
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="LOGIN"
+            android:text="REGISTER"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,25 +65,26 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonRegister"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Login"
+            android:text="Register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
         <TextView
-            android:id="@+id/registerRedirect"
+            android:id="@+id/loginRedirect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text = "Not yet registered? Register"
+            android:text = "Already registered? Login"
             android:gravity="center"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLogin"/>
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegister"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
