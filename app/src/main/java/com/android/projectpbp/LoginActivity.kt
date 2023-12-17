@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.android.projectpbp.databinding.ActivityLoginBinding
-import com.android.projectpbp.databinding.ActivityRegisterBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.registerRedirect.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }
