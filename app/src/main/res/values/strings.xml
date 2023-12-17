@@ -1,3 +1,42 @@
 <resources>
+
     <string name="app_name">ProjectPBP</string>
+    <string name="create_transaction">Buat Transaksi</string>
+    <string name="id">ID</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="waktu">Waktu</string>
+    <string name="select_shift">Pilih Shift</string>
+    <string name="id_pengguna">ID Pengguna</string>
+    <string name="id_pelanggan">ID Pelanggan</string>
+    <string name="select_status">Pilih Status</string>
+    <string name="nama_pelanggan">Nama Pelanggan</string>
+    <string name="total">Total</string>
+    <string name="select_metode_pembayaran">Pilih Metode Pembayaran</string>
+    <string name="total_diskon">Total Diskon</string>
+    <string name="select_id_promosi">Pilih ID Promosi</string>
+    <string name="simpan">Simpan</string>
+
+    <string-array name="shift_options">
+        <item>@string/select_shift</item>
+        <item>Shift 1</item>
+        <item>Shift 2</item>
+    </string-array>
+
+    <string-array name="status_options">
+        <item>@string/select_status</item>
+        <item>Baru</item>
+        <item>Diproses</item>
+        <item>Disajikan</item>
+        <item>Selesai</item>
+    </string-array>
+
+    <string-array name="metode_pembayaran_options">
+        <item>@string/select_metode_pembayaran</item>
+        <item>Cash</item>
+        <item>Kartu Debit</item>
+        <item>Kartu Kredit</item>
+        <item>QRIS</item>
+    </string-array>
+
+
 </resources>
