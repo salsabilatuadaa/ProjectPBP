@@ -31,13 +31,13 @@
             android:name=".MainActivity"
             android:exported="true"/>
         <activity android:name=".MainWarungActivity"
-            android:exported="false"/>
+            android:exported="true"/>
         <activity android:name=".AddWarungActivity"
-            android:exported="false"/>
+            android:exported="true"/>
         <activity android:name=".SelectWarung"
-            android:exported="false"/>
+            android:exported="true"/>
         <activity android:name=".DetailWarungActivity"
-            android:exported="false"/>
+            android:exported="true"/>
     </application>
 
 </manifest>

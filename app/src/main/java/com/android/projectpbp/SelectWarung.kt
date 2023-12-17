@@ -4,19 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.android.projectpbp.databinding.ActivityWarungBinding
 
-class SelectWarung {
-    class SelectWarung : AppCompatActivity() {
+class SelectWarung : AppCompatActivity() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_warung)
-        }
+    private lateinit var binding: ActivityWarungBinding
 
-        // Metode untuk menangani tombol atau tindakan yang memicu peralihan ke DetailWarungActivity
-        fun navigateToAddWarung(view: View) {
-            val intent = Intent(this, DetailWarungActivity::class.java)
-            startActivity(intent)
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityWarungBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_warung)
+    }
+
+    // Metode untuk menangani tombol atau tindakan yang memicu peralihan ke DetailWarungActivity
+    fun navigateToAddWarung(view: View) {
+        val intent = Intent(this, DetailWarungActivity::class.java)
+        startActivity(intent)
     }
 }
