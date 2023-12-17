@@ -37,6 +37,6 @@
         <item>Kartu Kredit</item>
         <item>QRIS</item>
     </string-array>
-
+    <string name="detail_transaction">Detail Transaksi</string>
 
 </resources>
