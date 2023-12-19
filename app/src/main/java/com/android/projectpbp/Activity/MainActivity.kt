@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.buttonMenu.setOnClickListener{
+        binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, ListMenuActivity::class.java)
             startActivity(intent)
             finish()
