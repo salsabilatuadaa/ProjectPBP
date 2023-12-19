@@ -15,9 +15,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonWarung.setOnClickListener{
-            val intent = Intent(this, MainWarungActivity::class.java)
+            val intent= Intent(this, SelectWarung::class.java)
             startActivity(intent)
             finish()
         }
+
+        binding.buttonMenu.setOnClickListener{
+            val intent = Intent(this, ListMenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
     }
 }

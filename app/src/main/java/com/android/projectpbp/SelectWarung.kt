@@ -14,11 +14,18 @@ class SelectWarung : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWarungBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_warung)
+
+        binding.ivAddWarung.setOnClickListener{
+            val intent = Intent(this, AddWarungActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
+
     // Metode untuk menangani tombol atau tindakan yang memicu peralihan ke DetailWarungActivity
-    fun navigateToAddWarung(view: View) {
-        val intent = Intent(this, DetailWarungActivity::class.java)
-        startActivity(intent)
-    }
+//    fun navigateToAddWarung(view: View) {
+//        val intent = Intent(this, DetailWarungActivity::class.java)
+//        startActivity(intent)
+//    }
 }
