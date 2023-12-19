@@ -13,16 +13,16 @@
         android:theme="@style/Theme.ProjectPBP"
         tools:targetApi="31">
         <activity
-            android:name=".CreateMenuActivity"
+            android:name=".Activity.CreateMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailMenuActivity"
+            android:name=".Activity.DetailMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ListMenuActivity"
+            android:name=".Activity.ListMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,25 +31,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateTransactionActivity"
+            android:name=".Activity.CreateTransactionActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".MainWarungActivity"
+            android:name=".Activity.AddWarungActivity"
             android:exported="true" />
         <activity
-            android:name=".AddWarungActivity"
+            android:name=".Activity.SelectWarung"
             android:exported="true" />
         <activity
-            android:name=".SelectWarung"
-            android:exported="true" />
-        <activity
-            android:name=".DetailWarungActivity"
+            android:name=".Activity.DetailWarungActivity"
             android:exported="true" />
     </application>
 

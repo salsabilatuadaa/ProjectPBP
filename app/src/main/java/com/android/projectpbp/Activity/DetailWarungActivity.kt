@@ -1,7 +1,8 @@
-package com.android.projectpbp
+package com.android.projectpbp.Activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.android.projectpbp.R
 
 class DetailWarungActivity {
     class DetailWarungActivity : AppCompatActivity() {

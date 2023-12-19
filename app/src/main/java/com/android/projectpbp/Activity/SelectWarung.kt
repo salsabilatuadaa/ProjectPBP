@@ -1,9 +1,9 @@
-package com.android.projectpbp
+package com.android.projectpbp.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.android.projectpbp.R
 import com.android.projectpbp.databinding.ActivityWarungBinding
 
 class SelectWarung : AppCompatActivity() {

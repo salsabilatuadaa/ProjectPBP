@@ -1,9 +1,10 @@
-package com.android.projectpbp
+package com.android.projectpbp.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.android.projectpbp.DatabaseHelper
 import com.android.projectpbp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

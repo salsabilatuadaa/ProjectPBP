@@ -1,7 +1,9 @@
-package com.android.projectpbp;
+package com.android.projectpbp.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.android.projectpbp.R;
 
 public class CreateTransactionActivity extends Activity {
     @Override

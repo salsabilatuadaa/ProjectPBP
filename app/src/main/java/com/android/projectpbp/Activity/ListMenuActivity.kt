@@ -1,4 +1,4 @@
-package com.android.projectpbp
+package com.android.projectpbp.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
