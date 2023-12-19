@@ -99,19 +99,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_NamaWarungValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_NamaWarung"
             android:layout_marginStart="15dp"
             android:layout_marginTop="40dp"
-            android:text="Burjo Inspirasi 1"
-            android:textSize="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_NamaWarung"
-            tools:ignore="TextSizeCheck" />
+            tools:ignore="TextSizeCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
