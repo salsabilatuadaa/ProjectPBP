@@ -10,13 +10,13 @@ import com.android.projectpbp.databinding.ActivityRegisterBinding
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityRegisterBinding
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var db : DatabaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        databaseHelper = DatabaseHelper(this)
+        db = DatabaseHelper(this)
 
         binding.buttonRegister.setOnClickListener {
             val registerUsername = binding.editTextUsername.text.toString()
@@ -32,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerDatabase(username: String, password : String){
-        val insertRowId = databaseHelper.insertUser(username, password)
+        val insertRowId = db.insertUser(username, password)
         if (insertRowId != -1L){
             Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show()
             val intent = Intent (this, LoginActivity::class.java)

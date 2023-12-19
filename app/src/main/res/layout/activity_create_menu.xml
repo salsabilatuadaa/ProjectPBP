@@ -22,14 +22,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/editTextIdWarung"/>
+            app:layout_constraintBottom_toTopOf="@+id/namaWarung"/>
 
         <!-- ID Warung -->
         <EditText
-            android:id="@+id/editTextIdWarung"
+            android:id="@+id/namaWarung"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="ID Warung"
+            android:hint="Nama Menu"
             android:minHeight="48dp"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,32 +37,27 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <!-- Nama Warung -->
-        <EditText
-            android:id="@+id/editTextNamaWarung"
+        <Spinner
+            android:id="@+id/kategoriMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Nama Warung"
             android:minHeight="48dp"
-            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextIdWarung" />
+            app:layout_constraintTop_toBottomOf="@+id/namaWarung" />
 
 
-
-        <!-- Add Logo -->
-        <ImageButton
-            android:id="@+id/buttonAddLogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="20dp"
-            android:background="?android:selectableItemBackground"
-            android:onClick="selectAndCropImage"
-            android:src="@drawable/login_food"
-            android:contentDescription="edit"
+        <EditText
+            android:id="@+id/hargaMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Harga Menu"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNamaWarung"/>
+            app:layout_constraintTop_toBottomOf="@+id/kategoriMenu" />
+
 
         <!-- Tombol Add -->
         <Button
@@ -73,6 +68,6 @@
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonAddLogo"/>
+            app:layout_constraintTop_toBottomOf="@+id/hargaMenu"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
