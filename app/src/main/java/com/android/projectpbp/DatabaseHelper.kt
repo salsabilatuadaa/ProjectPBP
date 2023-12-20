@@ -23,7 +23,7 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         private const val TABLE_MENU = "menu"
         private const val COLUMN_MENU_ID = "id"
         private const val COLUMN_MENU_NAMA ="namamenu"
-//        private const val COLUMN_MENU_KATEGORI = "kategori"
+        private const val COLUMN_MENU_KATEGORI = "kategori"
         private const val COLUMN_MENU_HARGA = "harga"
         private const val COLUMN_MENU_GAMBAR = "menugambar"
     }
@@ -64,7 +64,7 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
     fun insertMenu(menu : Menu): Long {
         val values = ContentValues().apply {
             put(COLUMN_MENU_NAMA, menu.namamenu)
-//            put(COLUMN_MENU_KATEGORI, menu.kategori.joinToString(","))
+            put(COLUMN_MENU_KATEGORI, menu.kategori)
             put(COLUMN_MENU_HARGA, menu.harga)
 //            put(COLUMN_MENU_GAMBAR, bitmapToByteArray(menu.gambar))
         }
@@ -73,15 +73,6 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         db.close()
     }
 
-    fun isMenuTableExists(): Boolean {
-        val db = readableDatabase
-        val query = "SELECT name FROM sqlite_master WHERE type='table' AND name='$TABLE_MENU'"
-        val cursor = db.rawQuery(query, null)
-        val tableExists = cursor.count > 0
-        cursor.close()
-        db.close()
-        return tableExists
-    }
 
         fun getAllMenu(): List<Menu>{
         val menuList = mutableListOf<Menu>()
@@ -92,9 +83,10 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         while (cursor.moveToNext()){
             val idmenu = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_ID))
             val namamenu = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_NAMA))
+            val kategori = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_KATEGORI))
             val harga = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_HARGA))
 
-            val menu = Menu(idmenu, namamenu, harga)
+            val menu = Menu(idmenu, namamenu, kategori, harga)
             menuList.add(menu)
         }
         cursor.close()
@@ -128,6 +120,7 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         val db = writableDatabase
         val values = ContentValues().apply{
             put(COLUMN_MENU_NAMA, menu.namamenu)
+            put(COLUMN_MENU_KATEGORI, menu.kategori)
             put(COLUMN_MENU_HARGA, menu.harga)
         }
         val whereClause = "$COLUMN_MENU_ID = ?"
@@ -144,11 +137,12 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
 
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_ID))
         val namaMenu = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_NAMA))
+        val kategori = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_KATEGORI))
         val hargaMenu = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_HARGA))
 
         cursor.close()
         db.close()
-        return Menu(id, namaMenu, hargaMenu)
+        return Menu(id, namaMenu, kategori, hargaMenu)
     }
 
     fun deleteMenu(menuId: Int){

@@ -21,6 +21,7 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
     class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val namaMenu : TextView = itemView.findViewById(R.id.namaMenu)
         val hargaMenu : TextView = itemView.findViewById(R.id.hargaMenu)
+        val kategori : TextView = itemView.findViewById(R.id.kategoriMenu)
 
         val updateButton : ImageView = itemView.findViewById(R.id.edit)
         val deleteButton : ImageView = itemView.findViewById(R.id.hapus)
@@ -38,6 +39,7 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val Menu = menu[position]
         holder.namaMenu.text = Menu.namamenu
+        holder.kategori.text = Menu.kategori
         holder.hargaMenu.text = "Rp " + Menu.harga.toString()
 
         holder.updateButton.setOnClickListener{

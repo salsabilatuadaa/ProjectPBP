@@ -1,5 +1,11 @@
 <resources>
 
+    <string-array name="kategori_menu">
+        <item>Select Kategori</item>
+        <item>Makanan</item>
+        <item>Minuman</item>
+    </string-array>
+
     <string name="app_name">ProjectPBP</string>
     <string name="create_transaction">Buat Transaksi</string>
     <string name="id">ID</string>
