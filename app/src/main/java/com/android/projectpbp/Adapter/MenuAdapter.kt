@@ -22,6 +22,7 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
         val namaMenu : TextView = itemView.findViewById(R.id.namaMenu)
         val hargaMenu : TextView = itemView.findViewById(R.id.hargaMenu)
         val kategori : TextView = itemView.findViewById(R.id.kategoriMenu)
+        val gambar : ImageView = itemView.findViewById(R.id.imageMenu)
 
         val updateButton : ImageView = itemView.findViewById(R.id.edit)
         val deleteButton : ImageView = itemView.findViewById(R.id.hapus)
@@ -41,6 +42,7 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
         holder.namaMenu.text = Menu.namamenu
         holder.kategori.text = Menu.kategori
         holder.hargaMenu.text = "Rp " + Menu.harga.toString()
+        holder.gambar.setImageBitmap(Menu.gambar)
 
         holder.updateButton.setOnClickListener{
             val intent = Intent(holder.itemView.context, UpdateMenu::class.java).apply {

@@ -38,7 +38,8 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         val createMenuQuery = ("CREATE TABLE $TABLE_MENU (" +
                 "$COLUMN_MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 "$COLUMN_MENU_NAMA TEXT,"+
-                "$COLUMN_MENU_HARGA INTEGER)")
+                "$COLUMN_MENU_HARGA INTEGER)"+
+                "$COLUMN_MENU_GAMBAR BLOB)")
         db?.execSQL(createMenuQuery)
     }
 
@@ -66,11 +67,19 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
             put(COLUMN_MENU_NAMA, menu.namamenu)
             put(COLUMN_MENU_KATEGORI, menu.kategori)
             put(COLUMN_MENU_HARGA, menu.harga)
-//            put(COLUMN_MENU_GAMBAR, bitmapToByteArray(menu.gambar))
+            menu.gambar?.let {
+                put(COLUMN_MENU_GAMBAR, bitmapToByteArray(it))
+            }
         }
         val db = writableDatabase
         return db.insert(TABLE_MENU, null, values)
         db.close()
+    }
+
+    private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        return stream.toByteArray()
     }
 
 
@@ -84,9 +93,12 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
             val idmenu = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_ID))
             val namamenu = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_NAMA))
             val kategori = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_KATEGORI))
+            val gambarByteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_MENU_GAMBAR))
             val harga = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_HARGA))
 
-            val menu = Menu(idmenu, namamenu, kategori, harga)
+            val gambarBitmap = BitmapFactory.decodeByteArray(gambarByteArray, 0, gambarByteArray.size)
+
+            val menu = Menu(idmenu, namamenu, kategori, harga, gambarBitmap)
             menuList.add(menu)
         }
         cursor.close()
@@ -138,11 +150,14 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_ID))
         val namaMenu = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_NAMA))
         val kategori = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_KATEGORI))
+        val gambarByteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_MENU_GAMBAR))
         val hargaMenu = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_HARGA))
+
+        val gambarBitmap = BitmapFactory.decodeByteArray(gambarByteArray, 0, gambarByteArray.size)
 
         cursor.close()
         db.close()
-        return Menu(id, namaMenu, kategori, hargaMenu)
+        return Menu(id, namaMenu, kategori, hargaMenu, gambarBitmap)
     }
 
     fun deleteMenu(menuId: Int){
