@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 
 data class Menu(val idmenu: Int,
                 val namamenu: String,
-//                val kategori: List<String> = listOf("Makanan", "Minuman"),
+                val kategori: String,
                 val harga: Int,
 //                val gambar : Bitmap
                 )

@@ -23,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/namaWarung"/>
+            app:layout_constraintBottom_toTopOf="@+id/namaMenu"/>
 
         <!-- ID Warung -->
         <EditText
@@ -42,11 +42,11 @@
             android:id="@+id/kategoriMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Nama Warung"
             android:minHeight="48dp"
+            android:contentDescription="Select Kategori"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namaWarung" />
+            app:layout_constraintTop_toBottomOf="@+id/namaMenu" />
 
 
         <EditText

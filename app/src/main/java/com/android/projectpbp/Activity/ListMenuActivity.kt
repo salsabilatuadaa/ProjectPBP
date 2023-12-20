@@ -3,6 +3,7 @@ package com.android.projectpbp.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.projectpbp.Adapter.MenuAdapter
 import com.android.projectpbp.DatabaseHelper
@@ -30,6 +31,14 @@ class ListMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val callback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@ListMenuActivity, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                startActivity(intent)
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onResume() {
