@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#FFDAB9"
-    tools:context=".Activity.CreateMenuActivity">
+    tools:context=".Activity.UpdateMenu">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,18 +16,18 @@
         android:paddingHorizontal="30dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/editImageView"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:src="@drawable/login_food"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/namaWarung"/>
+            app:layout_constraintBottom_toTopOf="@+id/editNamaMenu"/>
 
         <!-- ID Warung -->
         <EditText
-            android:id="@+id/namaMenu"
+            android:id="@+id/editNamaMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Nama Menu"
@@ -35,40 +35,40 @@
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/editImageView" />
 
         <!-- Nama Warung -->
         <Spinner
-            android:id="@+id/kategoriMenu"
+            android:id="@+id/editKategoriMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Nama Warung"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/namaWarung" />
+            app:layout_constraintTop_toBottomOf="@+id/editNamaMenu" />
 
 
         <EditText
-            android:id="@+id/hargaMenu"
+            android:id="@+id/editHargaMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Harga Menu"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kategoriMenu" />
+            app:layout_constraintTop_toBottomOf="@+id/editKategoriMenu" />
 
 
         <!-- Tombol Add -->
         <Button
-            android:id="@+id/buttonAdd"
+            android:id="@+id/buttonUpdateMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="Update"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hargaMenu"/>
+            app:layout_constraintTop_toBottomOf="@+id/editHargaMenu"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

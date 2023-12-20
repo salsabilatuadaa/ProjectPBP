@@ -74,19 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="View"
                 android:layout_gravity="end"/>
-
-            <Button
-                android:id="@+id/buttonCreateMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create"
-                android:layout_gravity="end"/>
         </LinearLayout>
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

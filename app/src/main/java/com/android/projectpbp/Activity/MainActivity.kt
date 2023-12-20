@@ -30,11 +30,6 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.buttonCreateMenu.setOnClickListener{
-            val intent = Intent(this, CreateMenuActivity::class.java)
-            startActivity(intent)
-        }
-
 
     }
 }

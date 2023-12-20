@@ -21,7 +21,7 @@ class CreateMenuActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
         binding.buttonAdd.setOnClickListener{
-            val nama = binding.namaWarung.text.toString()
+            val nama = binding.namaMenu.text.toString()
 //            val kategori = listOf(binding.kategoriMenu.selectedItem.toString())
             val harga = binding.hargaMenu.text.toString().toInt()
 //            val bitmap: Bitmap? = (binding.imageView.drawable as? BitmapDrawable)?.bitmap

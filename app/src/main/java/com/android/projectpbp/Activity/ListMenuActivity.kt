@@ -29,6 +29,7 @@ class ListMenuActivity : AppCompatActivity() {
             val intent = Intent(this, CreateMenuActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onResume() {

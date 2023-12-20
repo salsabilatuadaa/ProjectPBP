@@ -122,4 +122,40 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         cursor.close()
         return userExists
     }
+
+
+    fun updateMenu(menu: Menu){
+        val db = writableDatabase
+        val values = ContentValues().apply{
+            put(COLUMN_MENU_NAMA, menu.namamenu)
+            put(COLUMN_MENU_HARGA, menu.harga)
+        }
+        val whereClause = "$COLUMN_MENU_ID = ?"
+        val whereArgs = arrayOf(menu.idmenu.toString())
+        db.update(TABLE_MENU, values, whereClause, whereArgs)
+        db.close()
+    }
+
+    fun getMenuByID(menuId: Int) : Menu{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_MENU WHERE $COLUMN_MENU_ID = $menuId"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_ID))
+        val namaMenu = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MENU_NAMA))
+        val hargaMenu = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_MENU_HARGA))
+
+        cursor.close()
+        db.close()
+        return Menu(id, namaMenu, hargaMenu)
+    }
+
+    fun deleteMenu(menuId: Int){
+        val db = writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(menuId.toString())
+        db.delete(TABLE_MENU, whereClause, whereArgs)
+        db.close()
+    }
 }

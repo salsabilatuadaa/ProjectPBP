@@ -13,17 +13,20 @@
         android:theme="@style/Theme.ProjectPBP"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.CreateMenuActivity"
-            android:parentActivityName=".Activity.ListMenuActivity"
+            android:name=".Activity.UpdateMenu"
             android:exported="false" />
+        <activity
+            android:name=".Activity.CreateMenuActivity"
+            android:exported="false"
+            android:parentActivityName=".Activity.ListMenuActivity" />
         <activity
             android:name=".Activity.DetailMenuActivity"
-            android:parentActivityName=".Activity.ListMenuActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Activity.ListMenuActivity" />
         <activity
             android:name=".Activity.ListMenuActivity"
-            android:parentActivityName=".Activity.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Activity.MainActivity" />
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
@@ -44,8 +47,8 @@
             android:exported="true" />
         <activity
             android:name=".Activity.AddWarungActivity"
-            android:parentActivityName=".Activity.SelectWarung"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activity.SelectWarung" />
         <activity
             android:name=".Activity.SelectWarung"
             android:exported="true" />
