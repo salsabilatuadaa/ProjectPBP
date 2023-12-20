@@ -49,60 +49,9 @@ class CreateMenuActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
 
-
-
-
-
-
-
-
-
-
-        fun openGallery() {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, PICK_IMAGE_REQUEST)
-        }
-
         binding.imageView.setOnClickListener {
             openGallery()
         }
-
-        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            super.onActivityResult(requestCode, resultCode, data)
-            if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
-                val uri: Uri? = data.data
-                try {
-                    if (uri != null) {
-                        // Gunakan ContentResolver untuk membaca InputStream dari URI
-                        val inputStream: InputStream? = contentResolver.openInputStream(uri)
-                        // Konversi InputStream menjadi Bitmap
-                        selectedImage = BitmapFactory.decodeStream(inputStream)
-                        // Tampilkan gambar di ImageView
-                        binding.imageView.setImageBitmap(selectedImage)
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         binding.buttonAdd.setOnClickListener{
@@ -124,5 +73,28 @@ class CreateMenuActivity : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
+            val uri: Uri? = data.data
+            try {
+                if (uri != null) {
+                    // Gunakan ContentResolver untuk membaca InputStream dari URI
+                    val inputStream: InputStream? = contentResolver.openInputStream(uri)
+                    // Konversi InputStream menjadi Bitmap
+                    selectedImage = BitmapFactory.decodeStream(inputStream)
+                    // Tampilkan gambar di ImageView
+                    binding.imageView.setImageBitmap(selectedImage)
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+    fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 }
