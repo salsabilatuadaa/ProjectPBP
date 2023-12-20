@@ -37,9 +37,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.CreateTransactionActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
