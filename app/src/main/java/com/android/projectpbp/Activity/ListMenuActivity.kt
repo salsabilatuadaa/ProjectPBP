@@ -21,7 +21,7 @@ class ListMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = DatabaseHelper(this,)
-        menuAdapter = MenuAdapter(db.getAllMenu(), this)
+        menuAdapter = MenuAdapter(db.getAllMenu(), this )
 
         binding.menuRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.menuRecyclerView.adapter = menuAdapter
