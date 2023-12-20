@@ -3,6 +3,7 @@ package com.android.projectpbp.Adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,7 @@ import com.android.projectpbp.DatabaseHelper
 import com.android.projectpbp.Model.Menu
 import com.android.projectpbp.R
 
-class MenuAdapter(private var menu : List<Menu>, private val context: Context) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
+class MenuAdapter(private var menu : List<Menu>, private val context: Context, private var images : List<Bitmap>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
 
     private val db : DatabaseHelper = DatabaseHelper(context)
     class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -42,7 +43,7 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
         holder.namaMenu.text = Menu.namamenu
         holder.kategori.text = Menu.kategori
         holder.hargaMenu.text = "Rp " + Menu.harga.toString()
-        holder.gambar.setImageBitmap(Menu.gambar)
+        holder.gambar.setImageBitmap(images[position])
 
         holder.updateButton.setOnClickListener{
             val intent = Intent(holder.itemView.context, UpdateMenu::class.java).apply {
@@ -76,8 +77,9 @@ class MenuAdapter(private var menu : List<Menu>, private val context: Context) :
     }
 
 
-    fun refreshData(newMenu: List<Menu>){
+    fun refreshData(newMenu: List<Menu>, newImages: List<Bitmap> = emptyList()){
         menu = newMenu
+        images = newImages
         notifyDataSetChanged()
     }
 
