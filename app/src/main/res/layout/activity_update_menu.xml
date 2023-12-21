@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#FFDAB9"
+    android:background="@drawable/gradient_bg"
     tools:context=".Activity.UpdateMenu">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_update_menu"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#483D8B"
         app:title="Menu"
         app:titleTextColor="@android:color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />

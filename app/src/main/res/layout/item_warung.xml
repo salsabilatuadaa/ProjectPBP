@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:background="@color/white">
+        android:background="#D8BFD8"
+        tools:ignore="ExtraText">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/warungImage"
@@ -32,6 +33,7 @@
             android:layout_marginStart="16dp"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:fontFamily="@font/playfairdisplay_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/warungImage"
             app:layout_constraintTop_toTopOf="@+id/warungImage"
@@ -54,6 +56,7 @@
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
             android:text="A101 A102 A103 A104 A105 A106 B108 B109 "
+            android:fontFamily="@font/playfairdisplay_medium"
             app:layout_constraintTop_toTopOf="@+id/warungLogo"
             app:layout_constraintStart_toEndOf="@+id/warungLogo" />
 
@@ -61,18 +64,20 @@
             android:id="@+id/editWarung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="12dp"
-            android:layout_marginStart="100dp"
             android:src="@drawable/baseline_edit_24"
-            app:layout_constraintTop_toBottomOf="@+id/warungLogo"
-            app:layout_constraintStart_toEndOf="@+id/warungLogo" />
+            app:layout_constraintStart_toEndOf="@+id/warungLogo"
+            app:layout_constraintTop_toBottomOf="@+id/warungLogo" />
 
         <ImageView
             android:id="@+id/hapusWarung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="18dp"
             android:src="@drawable/baseline_delete_24"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/editWarung"
             app:layout_constraintTop_toTopOf="@+id/editWarung" />
 

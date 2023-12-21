@@ -13,8 +13,8 @@
         android:id="@+id/tb_dashboard"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#00008B"
-        app:title="Dashboard"
+        android:background="#483D8B"
+        app:title="Warmindo Inspirasi"
         android:fontFamily="@font/playfairdisplay_medium"
         app:titleTextColor="@android:color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />

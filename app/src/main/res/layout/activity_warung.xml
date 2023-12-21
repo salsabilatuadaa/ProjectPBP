@@ -5,17 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFDAB9"
+    android:background="@drawable/gradient_bg"
     tools:context=".Activity.SelectWarung">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="WARUNG"
-        android:textSize="32sp"
-        android:layout_marginStart="18dp"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_warung"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#483D8B"
+        app:title="Warung"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintBaseline_toTopOf="@id/warungRecyclerView"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/warungRecyclerView"

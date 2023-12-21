@@ -63,12 +63,12 @@ class WarungAdapter (private var warung : List<Warung>,
     private fun showDeleteConfirmationDialog(menuId: Int) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Konfirmasi Hapus")
-        builder.setMessage("Apakah Anda yakin ingin menghapus menu ini?")
+        builder.setMessage("Apakah Anda yakin ingin menghapus data warung ini?")
 
         builder.setPositiveButton("Ya") { _, _ ->
             db.deleteWarung(menuId)
             refreshData(db.getAllWarung())
-            Toast.makeText(context, "Menu Deleted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Warung Deleted", Toast.LENGTH_SHORT).show()
         }
 
         builder.setNegativeButton("Tidak") { _, _ ->

@@ -12,7 +12,7 @@
         android:id="@+id/tb_list_menu"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#00008B"
+        android:background="#483D8B"
         app:title="Menu"
         app:titleTextColor="@android:color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
