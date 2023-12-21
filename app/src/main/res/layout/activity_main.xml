@@ -5,24 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFDAB9"
+    android:background="@drawable/gradient_bg"
     tools:context=".Activity.MainActivity">
 
     <!-- Header DASHBOARD -->
-    <TextView
-        android:id="@+id/textViewDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DASHBOARD"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00008B"
+        app:title="Dashboard"
+        android:fontFamily="@font/playfairdisplay_medium"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textViewDashboard"
+        android:layout_below="@+id/tb_dashboard"
         android:layout_marginTop="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,11 +36,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:background="@color/white"
+                android:background="@drawable/rouded_bg"
                 android:elevation="4dp"
                 android:gravity="start"
-                android:orientation="vertical"
                 android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
@@ -48,16 +48,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
                     android:text="Warung"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_gravity="start"/>
+                    android:fontFamily="@font/playfairdisplay_medium"/>
 
                 <Button
                     android:id="@+id/buttonWarung"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="View"
+                    android:fontFamily="@font/mouldy_cheese"
                     android:layout_gravity="end"/>
             </LinearLayout>
 
@@ -65,33 +67,37 @@
                 android:id="@+id/linearLayoutMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                android:background="@color/white"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rouded_bg"
                 android:elevation="4dp"
                 android:gravity="start"
                 android:orientation="vertical"
                 android:padding="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayoutWarung"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutWarung">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
                     android:text="Menu"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_gravity="start"/>
+                    android:fontFamily="@font/playfairdisplay_medium"/>
 
                 <!-- View Button Inside the Card -->
                 <Button
                     android:id="@+id/buttonMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
                     android:text="View"
-                    android:layout_gravity="end"/>
+                    android:fontFamily="@font/mouldy_cheese"/>
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

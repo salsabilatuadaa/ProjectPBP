@@ -5,16 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
     tools:context=".Activity.ListMenuActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:text="MENU"
-        android:textSize="32sp"
-        android:layout_marginStart="18dp"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_list_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#00008B"
+        app:title="Menu"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menuRecyclerView"
