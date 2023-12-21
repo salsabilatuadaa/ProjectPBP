@@ -37,8 +37,9 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
 
         val createMenuQuery = ("CREATE TABLE $TABLE_MENU (" +
                 "$COLUMN_MENU_ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                "$COLUMN_MENU_NAMA TEXT,"+
-                "$COLUMN_MENU_HARGA INTEGER)"+
+                "$COLUMN_MENU_NAMA TEXT," +
+                "$COLUMN_MENU_KATEGORI TEXT," +
+                "$COLUMN_MENU_HARGA INTEGER,"+
                 "$COLUMN_MENU_GAMBAR BLOB)")
         db?.execSQL(createMenuQuery)
     }

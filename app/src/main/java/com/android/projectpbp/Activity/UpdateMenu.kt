@@ -70,6 +70,7 @@ class UpdateMenu : AppCompatActivity() {
 
         binding.editNamaMenu.setText(menu.namamenu)
         binding.editHargaMenu.setText(menu.harga.toString())
+        binding.editImageView.setImageBitmap(menu.gambar)
 
         binding.buttonUpdateMenu.setOnClickListener{
             val newNama = binding.editNamaMenu.text.toString()
