@@ -15,7 +15,7 @@
         android:layout_marginTop="100dp"
         android:paddingHorizontal="30dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/editImageView"
             android:layout_width="0dp"
             android:layout_height="200dp"

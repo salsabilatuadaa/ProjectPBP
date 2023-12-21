@@ -49,7 +49,7 @@ class CreateMenuActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
 
-        binding.imageView.setOnClickListener {
+        binding.imageMenu.setOnClickListener {
             openGallery()
         }
 
@@ -58,7 +58,7 @@ class CreateMenuActivity : AppCompatActivity() {
             val nama = binding.namaMenu.text.toString()
             val kategori = list.selectedItem.toString()
             val harga = binding.hargaMenu.text.toString().toInt()
-            val bitmap: Bitmap? = (binding.imageView.drawable as? BitmapDrawable)?.bitmap
+            val bitmap: Bitmap? = (binding.imageMenu.drawable as? BitmapDrawable)?.bitmap
 
             val menu = Menu(0, nama,kategori, harga, bitmap)
             db.insertMenu(menu)
@@ -85,7 +85,7 @@ class CreateMenuActivity : AppCompatActivity() {
                     // Konversi InputStream menjadi Bitmap
                     selectedImage = BitmapFactory.decodeStream(inputStream)
                     // Tampilkan gambar di ImageView
-                    binding.imageView.setImageBitmap(selectedImage)
+                    binding.imageMenu.setImageBitmap(selectedImage)
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
