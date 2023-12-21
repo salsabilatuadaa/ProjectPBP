@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,13 +9,22 @@
     android:background="#FFDAB9"
     tools:context=".Activity.UpdateMenu">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_update_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Menu"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:paddingHorizontal="30dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/editImageView"
             android:layout_width="0dp"
             android:layout_height="200dp"
@@ -31,6 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Nama Menu"
+            android:fontFamily="@font/playfairdisplay_medium"
             android:minHeight="48dp"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Harga Menu"
+            android:fontFamily="@font/playfairdisplay_medium"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,9 +77,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Update"
+            android:fontFamily="@font/mouldy_cheese"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editHargaMenu"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</RelativeLayout>

@@ -3,7 +3,9 @@ package com.android.projectpbp.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toolbar
 import com.android.projectpbp.DatabaseHelper
+import com.android.projectpbp.R
 import com.android.projectpbp.databinding.ActivityMainBinding
 
 
