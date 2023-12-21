@@ -25,7 +25,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/namaMenu"
             tools:src="@drawable/login_food" />
 
         <TextView
@@ -69,19 +69,19 @@
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="188dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="40dp"
             android:src="@drawable/baseline_edit_24"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/imageMenu"
-            app:layout_constraintTop_toBottomOf="@+id/hargaMenu" />
+            app:layout_constraintTop_toBottomOf="@+id/kategoriMenu"
+            app:layout_constraintStart_toEndOf="@+id/kategoriMenu"
+            />
 
         <ImageView
             android:id="@+id/hapus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="18dp"
             android:src="@drawable/baseline_delete_24"
             android:textSize="18sp"
             android:textStyle="bold"

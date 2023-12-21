@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFDAB9"
+    tools:context=".Activity.AddWarungActivity">
+
+    <TextView
+        android:id="@+id/textViewIsiFormulir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Isi Formulir"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/editWarungImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/editWarungImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/baseline_insert_photo_24"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIsiFormulir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="65dp" />
+
+
+    <EditText
+        android:id="@+id/editNamaWarung"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nama Warung"
+        android:minHeight="48dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/editWarungImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <EditText
+        android:id="@+id/editNomorMeja"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nomor Meja"
+        android:layout_marginTop="20dp"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/editNamaWarung"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="341dp" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/editWarungLogo"
+        android:layout_width="58dp"
+        android:layout_height="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:onClick="chooseImage"
+        android:src="@drawable/baseline_add_a_photo_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNomorMeja"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="Klik untuk Ubah Logo"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toEndOf="@+id/editWarungLogo"
+        app:layout_constraintTop_toBottomOf="@+id/editNomorMeja" />
+
+    <Button
+        android:id="@+id/buttonUpdateWarung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Update"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWarungLogo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

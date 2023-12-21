@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import com.android.projectpbp.Activity.UpdateMenu
 import com.android.projectpbp.Model.Menu
 import com.android.projectpbp.Model.Warung
 import java.io.ByteArrayOutputStream
@@ -185,16 +186,37 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
 
-    fun updateMenu(menu: Menu){
+    fun UpdateMenu(menu: Menu){
         val db = writableDatabase
         val values = ContentValues().apply{
             put(COLUMN_MENU_NAMA, menu.namamenu)
             put(COLUMN_MENU_KATEGORI, menu.kategori)
             put(COLUMN_MENU_HARGA, menu.harga)
+            menu.gambar?.let {
+                put(COLUMN_MENU_GAMBAR, bitmapToByteArray(it))
+            }
         }
         val whereClause = "$COLUMN_MENU_ID = ?"
         val whereArgs = arrayOf(menu.idmenu.toString())
         db.update(TABLE_MENU, values, whereClause, whereArgs)
+        db.close()
+    }
+
+    fun UpdateWarung(warung: Warung){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_WARUNG_NAMA, warung.namawarung)
+            put(COLUMN_WARUNG_MEJA, warung.nomormeja)
+            warung.gambarwarung?.let {
+                put(COLUMN_WARUNG_GAMBAR, bitmapToByteArray(it))
+            }
+            warung.logowarung?.let {
+                put(COLUMN_WARUNG_LOGO, bitmapToByteArray(it))
+            }
+        }
+        val whereClause = "$COLUMN_WARUNG_ID = ?"
+        val whereArgs = arrayOf(warung.idwarung.toString())
+        db.update(TABLE_WARUNG, values, whereClause, whereArgs)
         db.close()
     }
 
@@ -217,11 +239,41 @@ class DatabaseHelper(context:Context): SQLiteOpenHelper(context, DATABASE_NAME, 
         return Menu(id, namaMenu, kategori, hargaMenu, gambarBitmap)
     }
 
+    fun getWarungByID(warungId: Int) : Warung{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_WARUNG WHERE $COLUMN_WARUNG_ID = $warungId"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_WARUNG_ID))
+        val namaWarung = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_WARUNG_NAMA))
+        val nomorMeja = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_WARUNG_MEJA))
+        val gambarByteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_WARUNG_GAMBAR))
+        val logoByteArray = cursor.getBlob(cursor.getColumnIndexOrThrow(COLUMN_WARUNG_LOGO))
+
+        val gambarBitmap = BitmapFactory.decodeByteArray(gambarByteArray, 0, gambarByteArray.size)
+        val logoBitmap = BitmapFactory.decodeByteArray(logoByteArray, 0, logoByteArray.size)
+
+        cursor.close()
+        db.close()
+        return Warung(id, namaWarung, nomorMeja, gambarBitmap, logoBitmap)
+    }
+
     fun deleteMenu(menuId: Int){
         val db = writableDatabase
-        val whereClause = "$COLUMN_ID = ?"
+        val whereClause = "$COLUMN_MENU_ID = ?"
         val whereArgs = arrayOf(menuId.toString())
         db.delete(TABLE_MENU, whereClause, whereArgs)
         db.close()
     }
+
+    fun deleteWarung(warungId: Int){
+        val db = writableDatabase
+        val whereClause = "$COLUMN_WARUNG_ID = ?"
+        val whereArgs = arrayOf(warungId.toString())
+        db.delete(TABLE_WARUNG, whereClause, whereArgs)
+        db.close()
+    }
+
+
 }

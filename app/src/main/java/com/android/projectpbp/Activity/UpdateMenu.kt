@@ -43,15 +43,6 @@ class UpdateMenu : AppCompatActivity() {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         list.adapter = adapter
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.kategori_menu,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            list.adapter = adapter
-//        }
-
 
         menuId = intent.getIntExtra("menu_id", -1)
         if(menuId == -1){
@@ -77,8 +68,11 @@ class UpdateMenu : AppCompatActivity() {
             val newKategori = list.selectedItem.toString()
             val newHarga = binding.editHargaMenu.text.toString().toInt()
             val newGambar: Bitmap? = (binding.editImageView.drawable as? BitmapDrawable)?.bitmap
-            val updateMenu = Menu(menuId, newNama, newKategori, newHarga, newGambar)
-            db.updateMenu(updateMenu)
+
+            val resizedGambar = newGambar?.let { resizeImage(it, 250, 250) }
+
+            val updateMenu = Menu(menuId, newNama, newKategori, newHarga, resizedGambar)
+            db.UpdateMenu(updateMenu)
             finish()
             Toast.makeText(this, "Changed Saved", Toast.LENGTH_SHORT).show()
         }
@@ -87,6 +81,10 @@ class UpdateMenu : AppCompatActivity() {
             startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
         }
     }
+
+    private fun resizeImage(originalBitmap: Bitmap, targetWidth: Int, targetHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(originalBitmap, targetWidth, targetHeight, true)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
@@ -94,11 +92,15 @@ class UpdateMenu : AppCompatActivity() {
             try {
                 // Konversi URI gambar menjadi Bitmap
                 val selectedImage: Bitmap? = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+
+                val resizedImage = selectedImage?.let { resizeImage(it, 200, 200) }
+
                 // Tampilkan gambar di ImageView
-                binding.editImageView.setImageBitmap(selectedImage)
+                binding.editImageView.setImageBitmap(resizedImage)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
+
 }

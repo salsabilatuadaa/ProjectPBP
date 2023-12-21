@@ -73,6 +73,10 @@ class AddWarungActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun resizeImage(originalBitmap: Bitmap, targetWidth: Int, targetHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(originalBitmap, targetWidth, targetHeight, true)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -88,6 +92,9 @@ class AddWarungActivity : AppCompatActivity() {
                 val selectedBitmap = BitmapFactory.decodeStream(inputStream)
                 // Tampilkan gambar di ImageView yang sesuai
                 imageView.setImageBitmap(selectedBitmap)
+
+                val resizedBitmap = resizeImage(selectedBitmap, 250, 250)
+                imageView.setImageBitmap(resizedBitmap)
 
                 // Simpan gambar sesuai ImageView yang dimaksud
                 if (imageView == binding.warungImage) {

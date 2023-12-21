@@ -30,6 +30,7 @@ class CreateMenuActivity : AppCompatActivity() {
         private const val PICK_IMAGE_REQUEST = 1
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateMenuBinding.inflate(layoutInflater)
@@ -49,16 +50,17 @@ class CreateMenuActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
 
-        binding.imageMenu.setOnClickListener {
+        binding.imageView.setOnClickListener {
             openGallery()
         }
+
 
 
         binding.buttonAdd.setOnClickListener{
             val nama = binding.namaMenu.text.toString()
             val kategori = list.selectedItem.toString()
             val harga = binding.hargaMenu.text.toString().toInt()
-            val bitmap: Bitmap? = (binding.imageMenu.drawable as? BitmapDrawable)?.bitmap
+            val bitmap: Bitmap? = selectedImage?.let { resizeImage(it, 250, 250) }
 
             val menu = Menu(0, nama,kategori, harga, bitmap)
             db.insertMenu(menu)
@@ -74,6 +76,10 @@ class CreateMenuActivity : AppCompatActivity() {
         }
         onBackPressedDispatcher.addCallback(this, callback)
     }
+
+    private fun resizeImage(originalBitmap: Bitmap, targetWidth: Int, targetHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(originalBitmap, targetWidth, targetHeight, true)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
@@ -84,7 +90,7 @@ class CreateMenuActivity : AppCompatActivity() {
                     // Konversi InputStream menjadi Bitmap
                     selectedImage = BitmapFactory.decodeStream(inputStream)
                     // Tampilkan gambar di ImageView
-                    binding.imageMenu.setImageBitmap(selectedImage)
+                    binding.imageView.setImageBitmap(selectedImage)
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
