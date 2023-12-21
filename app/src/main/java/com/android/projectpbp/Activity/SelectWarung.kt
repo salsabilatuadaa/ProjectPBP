@@ -4,22 +4,31 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.android.projectpbp.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.projectpbp.Adapter.WarungAdapter
+import com.android.projectpbp.DatabaseHelper
 import com.android.projectpbp.databinding.ActivityWarungBinding
 
 class SelectWarung : AppCompatActivity() {
 
     private lateinit var binding: ActivityWarungBinding
+    private lateinit var db : DatabaseHelper
+    private lateinit var warungAdapter: WarungAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWarungBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        db = DatabaseHelper(this)
+        warungAdapter = WarungAdapter(db.getAllWarung(), this)
+
+        binding.warungRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.warungRecyclerView.adapter = warungAdapter
+
         binding.addButton.setOnClickListener() {
             val intent = Intent(this, AddWarungActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         val callback = object : OnBackPressedCallback(true){
@@ -33,14 +42,13 @@ class SelectWarung : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, callback)
     }
 
+    override fun onResume() {
+        super.onResume()
+        warungAdapter.refreshData(db.getAllWarung())
+    }
 
 }
 
 
 
 
-    // Metode untuk menangani tombol atau tindakan yang memicu peralihan ke DetailWarungActivity
-//    fun navigateToAddWarung(view: View) {
-//        val intent = Intent(this, DetailWarungActivity::class.java)
-//        startActivity(intent)
-//    }

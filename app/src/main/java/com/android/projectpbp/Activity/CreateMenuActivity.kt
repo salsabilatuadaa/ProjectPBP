@@ -80,7 +80,6 @@ class CreateMenuActivity : AppCompatActivity() {
             val uri: Uri? = data.data
             try {
                 if (uri != null) {
-                    // Gunakan ContentResolver untuk membaca InputStream dari URI
                     val inputStream: InputStream? = contentResolver.openInputStream(uri)
                     // Konversi InputStream menjadi Bitmap
                     selectedImage = BitmapFactory.decodeStream(inputStream)

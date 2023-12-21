@@ -16,58 +16,65 @@
         android:padding="16dp"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/iv_warung"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/warungImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:contentDescription="Image Warung"
-            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/namaWarung"
             tools:src="@drawable/login_food" />
         <TextView
-            android:id="@+id/tv_cabang_warung"
+            android:id="@+id/namaWarung"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_warung"
-            app:layout_constraintTop_toTopOf="@+id/iv_warung"
+            app:layout_constraintStart_toEndOf="@+id/warungImage"
+            app:layout_constraintTop_toTopOf="@+id/warungImage"
             tools:text="Warmindo Inspirasi 1" />
 
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="81dp"
-            android:layout_height="62dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/warungLogo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tv_cabang_warung"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cabang_warung" />
+            app:layout_constraintStart_toStartOf="@+id/namaWarung"
+            app:layout_constraintTop_toBottomOf="@+id/namaWarung" />
+
+        <TextView
+            android:id="@+id/nomorMeja"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:text="A101 A102 A103 A104 A105 A106 B108 B109 "
+            app:layout_constraintTop_toTopOf="@+id/warungLogo"
+            app:layout_constraintStart_toEndOf="@+id/warungLogo" />
 
         <ImageView
+            android:id="@+id/editWarung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="36dp"
-            android:clickable="true"
-            android:src="@drawable/baseline_edit_note_24"
-            app:layout_constraintEnd_toEndOf="@+id/tv_cabang_warung"
-            app:layout_constraintTop_toTopOf="@+id/tv_cabang_warung" />
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="100dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintTop_toBottomOf="@+id/warungLogo"
+            app:layout_constraintStart_toEndOf="@+id/warungLogo" />
 
         <ImageView
+            android:id="@+id/hapusWarung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="12dp"
-            android:clickable="true"
-            android:src="@drawable/baseline_block_24"
-            app:layout_constraintEnd_toEndOf="@+id/tv_cabang_warung"
-            app:layout_constraintTop_toTopOf="@+id/tv_cabang_warung" />
+            android:layout_marginStart="12dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintStart_toEndOf="@+id/editWarung"
+            app:layout_constraintTop_toTopOf="@+id/editWarung" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

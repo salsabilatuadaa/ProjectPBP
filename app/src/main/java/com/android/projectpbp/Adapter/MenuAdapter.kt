@@ -16,7 +16,9 @@ import com.android.projectpbp.DatabaseHelper
 import com.android.projectpbp.Model.Menu
 import com.android.projectpbp.R
 
-class MenuAdapter(private var menu : List<Menu>, private val context: Context ) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
+class MenuAdapter(private var menu : List<Menu>,
+                  private val context: Context
+) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
 
     private val db : DatabaseHelper = DatabaseHelper(context)
     class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

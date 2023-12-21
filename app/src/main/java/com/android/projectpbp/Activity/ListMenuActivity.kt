@@ -20,7 +20,7 @@ class ListMenuActivity : AppCompatActivity() {
         binding = ActivityListMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        db = DatabaseHelper(this,)
+        db = DatabaseHelper(this)
         menuAdapter = MenuAdapter(db.getAllMenu(), this )
 
         binding.menuRecyclerView.layoutManager = LinearLayoutManager(this)
